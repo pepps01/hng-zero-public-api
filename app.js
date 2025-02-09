@@ -1,5 +1,4 @@
 const express = require('express')
-const validater = require('validator');
 const app = express()
 const cors = require('cors');
 const port = process.env.PORT || 3000
@@ -16,11 +15,6 @@ app.get('/', (req, res) => {
     });
   }
 
-  // if(validater.isEmail(email)){
-  //   return res.status(400).json({
-  //     error: "The input is an invalid email "
-  //   });
-  // }
   const currentDatetime = new Date().toISOString(); 
   const response = {
     email: email, 
