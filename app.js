@@ -6,14 +6,8 @@ const port = process.env.PORT || 3000
 
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.json({
-    message: 'Hello, world!',
-  })
-})
- 
 
-app.get('/info', (req, res) => {
+app.get('/', (req, res) => {
   const email = req.query.email; 
 
   if (!email) {
@@ -22,11 +16,11 @@ app.get('/info', (req, res) => {
     });
   }
 
-  if(validater.isEmail(email)){
-    return res.status(400).json({
-      error: "The input is an invalid email "
-    });
-  }
+  // if(validater.isEmail(email)){
+  //   return res.status(400).json({
+  //     error: "The input is an invalid email "
+  //   });
+  // }
   const currentDatetime = new Date().toISOString(); 
   const response = {
     email: email, 
